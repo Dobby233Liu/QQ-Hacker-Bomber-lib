@@ -80,7 +80,6 @@ namespace 专治骗子
         }
         public static HttpWebRequest MakeHttpGet(string url, string httpKeyValue)
         {
-            string result = "";
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + "?" + httpKeyValue);
             req.Timeout = 5000;
             req.Method = "GET";
@@ -93,7 +92,6 @@ namespace 专治骗子
         }
         public static HttpWebRequest MakeHttpPost(string url, string httpKeyValue)
         {
-            string result = "";
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Timeout = 5000;
             req.Method = "POST";
