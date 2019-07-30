@@ -296,7 +296,13 @@ namespace 专治骗子
                 AdditionalKeyValue.Add(kvs.Key, kvs.Value);
             }
         }
-        private Dictionary<string, string> AdditionalKeyValue = new Dictionary<string, string>();
+
+        /**
+         * NOTE:
+         *      I make this var public because BomberEdit@QHB-GUI require to read AdditionalKeyValue.
+         **/
+        public Dictionary<string, string> AdditionalKeyValue = new Dictionary<string, string>();
+
         public override Dictionary<string, string> MakeWebform(string user, string pass)
         {
             Dictionary<string,string> based = base.MakeWebform(user, pass);
