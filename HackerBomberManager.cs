@@ -293,20 +293,28 @@ namespace 专治骗子
         {
             foreach (KeyValuePair<string, string> kvs in additionalKeyValue)
             {
-                AdditionalKeyValue.Add(kvs.Key, kvs.Value);
+                mAdditionalKeyValue.Add(kvs.Key, kvs.Value);
             }
         }
 
-        /**
-         * NOTE:
-         *      I make this var public because BomberEdit@QHB-GUI require to read AdditionalKeyValue.
-         **/
-        public Dictionary<string, string> AdditionalKeyValue = new Dictionary<string, string>();
+        private Dictionary<string, string> mAdditionalKeyValue = new Dictionary<string, string>();
+
+        public virtual Dictionary<string, string> AdditionalKeyValue
+        {
+            get
+            {
+                return mAdditionalKeyValue;
+            }
+            set
+            {
+                mAdditionalKeyValue = value;
+            }
+        }
 
         public override Dictionary<string, string> MakeWebform(string user, string pass)
         {
             Dictionary<string,string> based = base.MakeWebform(user, pass);
-            foreach (KeyValuePair<string, string> kvs in AdditionalKeyValue) {
+            foreach (KeyValuePair<string, string> kvs in mAdditionalKeyValue) {
                 based.Add(kvs.Key, kvs.Value);
             }
             return based;
